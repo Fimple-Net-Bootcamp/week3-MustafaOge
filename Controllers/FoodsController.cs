@@ -26,7 +26,7 @@ namespace VirtualPetCareAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PetFood>> PostFood(int petId, PetFood food)
+        public async Task<ActionResult<PetFood>> PostFood(Guid petId, PetFood food)
         {
             var pet = await _context.Pets.FindAsync(petId);
             if (pet == null)

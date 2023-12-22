@@ -19,7 +19,7 @@ namespace VirtualPetCareAPI.Controllers
         }
 
         [HttpGet("{petId}")]
-        public async Task<ActionResult<HealthStatus>> GetHealthStatus(int petId)
+        public async Task<ActionResult<HealthStatus>> GetHealthStatus(Guid petId)
         {
             var healthStatus = await _context.HealthStatuses.FirstOrDefaultAsync(h => h.PetId == petId);
             if (healthStatus == null)
@@ -31,7 +31,7 @@ namespace VirtualPetCareAPI.Controllers
         }
 
         [HttpPatch("{petId}")]
-        public async Task<IActionResult> UpdateHealthStatus(int petId, HealthStatus healthStatusUpdate)
+        public async Task<IActionResult> UpdateHealthStatus(Guid petId, HealthStatus healthStatusUpdate)
         {
             var healthStatus = await _context.HealthStatuses.FirstOrDefaultAsync(h => h.PetId == petId);
             if (healthStatus == null)
